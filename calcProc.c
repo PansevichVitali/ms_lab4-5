@@ -65,26 +65,8 @@ int write_operation(struct file *file, const char *buf, unsigned long count, voi
 int read_result(char *buffer, char **buffer_location,
                   off_t offset, int buffer_length, int *eof, void *data)
 {
-	long a1 = 0;
-	long a2 = 0;
-	long res = 0;
 
-	if (arg1_input[strlen(arg1_input) - 2] == '\n') {
-		arg1_input[strlen(arg1_input) - 2] = (char)0;
-	}
-
-	kstrtol(arg1_input, 10, &a1);
-	kstrtol(arg2_input, 10, &a2);
-
-	if (operation_input[0] == '+') {
-		res = a1 + a2;
-	} else if (operation_input[0] == '-') {
-		res = a1 - a2;
-	} else if (operation_input[0] == '.') {
-		res = a1 * a2;
-	} else if (operation_input[0] == '/') {
-		res = a1 / a2;
-	}
+	long res = calculate();
 
 	return sprintf(buffer, "%ld\n", res);
 }
