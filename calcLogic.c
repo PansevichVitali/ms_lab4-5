@@ -35,3 +35,4 @@ long calculate(void)
 	}
 	return res;
 }
+

@@ -116,3 +116,4 @@ static void __exit sysfsexample_module_exit(void)
 module_init(sysfsexample_module_init);
 module_exit(sysfsexample_module_exit);
 MODULE_LICENSE("GPL");
+
